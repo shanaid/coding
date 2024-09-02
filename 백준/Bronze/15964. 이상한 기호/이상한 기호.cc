@@ -6,9 +6,10 @@ int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     
-    int a,b;
-    cin>>a>>b;
-    cout<<(a+b)*(a-b)<<endl;
-   
+    int A,B;
+    
+    cin >> A >> B;
+    
+    cout << (long long) A*A - (long long)B*B<<endl;
     
 }
