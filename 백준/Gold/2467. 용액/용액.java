@@ -8,35 +8,32 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
 
-//        PriorityQueue<Integer> num = new PriorityQueue();
-        Deque<Integer> deque = new ArrayDeque<>();
+        int[] w = new int[N];
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-//        for(int a = 0; a<N; a++){
-//            num.add(Integer.parseInt(st.nextToken()));
-//        }
         for(int a =0; a<N;a++){
-            deque.add(Integer.parseInt(st.nextToken()));
+            w[a]= Integer.parseInt(st.nextToken());
         }
 
-        int high = deque.pollLast();
-        int low = deque.pollFirst();
+        int high = N-1;
+        int low = 0;
 
-        int result_high = high;
-        int result_low = low;
-        int sum = Math.abs(high + low);
+        int result_high = w[high];
+        int result_low = w[low];
+        int sum = Math.abs(result_high + result_low);
 
-        while( !deque.isEmpty() ){
+        while( high > low+1 ){
 
-            if( Math.abs(high) < Math.abs(low) ){ //+가 더 크다면
-                low = deque.pollFirst();
+            if( Math.abs(w[high]) < Math.abs(w[low]) ){
+                low++;
             }else{ //-가 더 크다면
-                high = deque.pollLast();
+                high--;
             }
-            if( Math.abs(high + low) < sum){
-                result_high = high;
-                result_low = low;
-                sum = Math.abs(high + low);
+
+            if( Math.abs(w[high] + w[low]) < sum){
+                result_high = w[high];
+                result_low = w[low];
+                sum = Math.abs(w[high] + w[low]);
             }
 
         }
