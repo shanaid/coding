@@ -8,15 +8,15 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
 
-        PriorityQueue<Integer> num = new PriorityQueue();
+//        PriorityQueue<Integer> num = new PriorityQueue();
         Deque<Integer> deque = new ArrayDeque<>();
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        for(int a = 0; a<N; a++){
-            num.add(Integer.parseInt(st.nextToken()));
-        }
+//        for(int a = 0; a<N; a++){
+//            num.add(Integer.parseInt(st.nextToken()));
+//        }
         for(int a =0; a<N;a++){
-            deque.add(num.poll());
+            deque.add(Integer.parseInt(st.nextToken()));
         }
 
         int high = deque.pollLast();
